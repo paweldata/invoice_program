@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
 import java.util.ArrayList;
 
 import invoice.Product;
@@ -16,7 +17,7 @@ public class ProductDatabase {
 		ArrayList<Product> productList = new ArrayList<Product>()
 ;		
 		try {
-			file = new ObjectInputStream(new FileInputStream("product"));
+			file = new ObjectInputStream(new FileInputStream("product.txt"));
 			productList = (ArrayList<Product>)file.readObject();
 			
 		} catch (Exception ex) {
@@ -28,7 +29,7 @@ public class ProductDatabase {
 	
 	public void saveProductToDatabase(ArrayList<Product> productList) {
 		try {
-            FileOutputStream fileOut = new FileOutputStream("product");
+            FileOutputStream fileOut = new FileOutputStream("product.txt");
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(productList);
             objectOut.close();
