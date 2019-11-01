@@ -15,7 +15,6 @@ public class InvoiceOptions {
 	public InvoiceOptions() {
 		this.invoiceDatabase = new InvoiceDatabase();
 		this.invoiceList = invoiceDatabase.getInvoiceFromDatabase();
-		//this.invoiceList = new ArrayList<Invoice>();
 	}
 	
 	public void addInvoice(ArrayList<Product> productList) {
@@ -28,22 +27,26 @@ public class InvoiceOptions {
 	
 	public void showInvoice() {
 		Invoice invoice = getInvoice();
-		System.out.println("Id : " + invoice.getId()
-						+ "\nCustomer : " + invoice.getCustomer()
-						+ "\nDate : " + invoice.getDate());
+		System.out.println("Id :\t" + invoice.getId()
+						+ "\nCustomer :\t" + invoice.getCustomer()
+						+ "\nDate :\t" + invoice.getDate());
 		
 		ArrayList<Position> positionList = invoice.getPositionList();
 		
+		float total = 0;
 		for (Position position : positionList) {
-			System.out.println(position.getProductName() + " "
-							+ "amount : " + position.getAmount()
-							+ "price :" + position.getPrice() * position.getAmount());
+			System.out.println(position.getProductName() + "\t"
+							+ + position.getAmount()+ " * " + position.getPrice()
+							+ " = " + position.getPrice() * position.getAmount());
+			total += position.getAmount() * position.getPrice();
 		}
+		
+		System.out.println("Total :\t" + total);
 	}
 	
 	private String getCustomer() {
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Customer : ");
+		System.out.print("Customer : ");
 		String customer = keyboard.nextLine();
 		
 		return customer;
@@ -82,14 +85,14 @@ public class InvoiceOptions {
 	}
 	
 	private Invoice getInvoice() {
+		System.out.println("Id\tCustomer");
 		for (Invoice invoice : invoiceList)
-			System.out.println(invoice.getId() + " " + invoice.getCustomer());
+			System.out.println(invoice.getId() + "\t" + invoice.getCustomer());
 		
-		System.out.println("Invoice id : ");
+		System.out.print("Invoice id : ");
 		Scanner keyboard = new Scanner(System.in);
 		int id = Integer.parseInt(keyboard.nextLine());
 		
 		return invoiceList.get(id);
-		
 	}
 }

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Options {
 	private ProductOptions productOptions;
 	private InvoiceOptions invoiceOptions;
+	private boolean ifQuit = false;
 	
 	public Options() {
 		this.productOptions = new ProductOptions();
@@ -16,7 +17,8 @@ public class Options {
 				+ "1. Add invoice\n"
 				+ "2. Show invoice\n"
 				+ "3. Add product\n"
-				+ "4. Show product\n");
+				+ "4. Show product\n"
+				+ "5. Quit");
 	}
 	
 	public void make() {
@@ -36,8 +38,12 @@ public class Options {
 		case 4:
 			this.productOptions.showProduct();
 			break;
+		case 5:
+			this.ifQuit = true;
 		}
-			
-		
+	}
+	
+	public boolean endProgram() {
+		return this.ifQuit;
 	}
 }

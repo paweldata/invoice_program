@@ -33,13 +33,13 @@ public class ProductOptions {
 	
 	public void showProduct() {
 		for(Product product : productList) {
-			System.out.println(product.getName() + " price " + product.getRecPrice());
+			System.out.println(product.getName() + "\tprice " + product.getRecPrice());
 		}
 	}
 	
 	private String addProductName() {
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Name : ");
+		System.out.print("Name : ");
 		String name = keyboard.nextLine();
 		
 		for(Product product : productList) {
@@ -54,7 +54,7 @@ public class ProductOptions {
 	
 	private float addProductPrice() {
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Price : ");
+		System.out.print("Price : ");
 		float price = Float.parseFloat(keyboard.nextLine());
 		
 		return price;
