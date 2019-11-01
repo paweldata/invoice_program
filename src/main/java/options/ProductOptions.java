@@ -13,7 +13,10 @@ public class ProductOptions {
 	public ProductOptions() {
 		this.productDatabase = new ProductDatabase();
 		this.productList = productDatabase.getProductFromDatabase();
-		//this.productList = new ArrayList<Product>();
+	}
+	
+	public ArrayList<Product> getProductList() {
+		return this.productList;
 	}
 	
 	public void addProduct() {
@@ -37,7 +40,7 @@ public class ProductOptions {
 	private String addProductName() {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Name : ");
-		String name = keyboard.next();
+		String name = keyboard.nextLine();
 		
 		for(Product product : productList) {
 			if (product.getName() == name) {
@@ -52,7 +55,7 @@ public class ProductOptions {
 	private float addProductPrice() {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Price : ");
-		float price = keyboard.nextFloat();
+		float price = Float.parseFloat(keyboard.nextLine());
 		
 		return price;
 	}
