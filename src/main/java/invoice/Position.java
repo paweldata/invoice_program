@@ -12,4 +12,20 @@ public class Position {
 		this.price = price;
 		//this.id = getPositionNumber
 	}
+	
+	public String getProductName() {
+		return this.product.getName();
+	}
+	
+	public int getAmount() {
+		return this.amount;
+	}
+	
+	public float getPrice() {
+		return this.price;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
 }
