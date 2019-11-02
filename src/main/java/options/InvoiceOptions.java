@@ -11,6 +11,7 @@ import invoice.Product;
 public class InvoiceOptions {
 	private ArrayList<Invoice> invoiceList;
 	private InvoiceDatabase invoiceDatabase;
+	private Scanner keyboard = new Scanner(System.in);
 	
 	public InvoiceOptions() {
 		this.invoiceDatabase = new InvoiceDatabase();
@@ -50,18 +51,15 @@ public class InvoiceOptions {
 	}
 	
 	private String getCustomer() {
-		Scanner keyboard = new Scanner(System.in);
 		System.out.print("Customer : ");
 		String customer = keyboard.nextLine();
 		
-		keyboard.close();
 		return customer;
 	}
 	
 	private ArrayList<Position> getPositionList(ArrayList<Product> productList) {
 		ArrayList<Position> positionList = new ArrayList<Position>();
 		boolean ifNewPosition = true;
-		Scanner keyboard = new Scanner(System.in);
 		
 		while(ifNewPosition) {
 			for (int i = 0; i < productList.size(); i++) {
@@ -86,7 +84,6 @@ public class InvoiceOptions {
 				ifNewPosition = false;
 			}
 		}
-		keyboard.close();
 		
 		return positionList;
 	}
@@ -97,9 +94,7 @@ public class InvoiceOptions {
 			System.out.println(invoice.getId() + "\t" + invoice.getCustomer());
 		
 		System.out.print("Invoice id : ");
-		Scanner keyboard = new Scanner(System.in);
 		int id = Integer.parseInt(keyboard.nextLine());
-		keyboard.close();
 		
 		return invoiceList.get(id);
 	}

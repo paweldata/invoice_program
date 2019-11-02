@@ -6,6 +6,7 @@ public class Options {
 	private ProductOptions productOptions;
 	private InvoiceOptions invoiceOptions;
 	private boolean ifQuit = false;
+	private Scanner keyboard = new Scanner(System.in);
 	
 	public Options() {
 		this.productOptions = new ProductOptions();
@@ -22,7 +23,6 @@ public class Options {
 	}
 	
 	public void make() {
-		Scanner keyboard = new Scanner(System.in);
 		int number = Integer.parseInt(keyboard.nextLine());
 		
 		switch(number) {
@@ -40,9 +40,10 @@ public class Options {
 			break;
 		case 5:
 			this.ifQuit = true;
+			break;
+		default:
+			System.out.println("Wrong number");
 		}
-		
-		keyboard.close();
 	}
 	
 	public boolean endProgram() {

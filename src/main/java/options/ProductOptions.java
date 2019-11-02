@@ -9,6 +9,7 @@ import invoice.Product;
 public class ProductOptions {
 	private ArrayList<Product> productList;
 	private ProductDatabase productDatabase;
+	private Scanner keyboard = new Scanner(System.in);
 	
 	public ProductOptions() {
 		this.productDatabase = new ProductDatabase();
@@ -38,7 +39,6 @@ public class ProductOptions {
 	}
 	
 	private String addProductName() {
-		Scanner keyboard = new Scanner(System.in);
 		System.out.print("Name : ");
 		String name = keyboard.nextLine();
 		
@@ -53,7 +53,6 @@ public class ProductOptions {
 	}
 	
 	private float addProductPrice() {
-		Scanner keyboard = new Scanner(System.in);
 		System.out.print("Price : ");
 		float price = Float.parseFloat(keyboard.nextLine());
 		
