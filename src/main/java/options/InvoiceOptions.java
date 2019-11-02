@@ -32,16 +32,21 @@ public class InvoiceOptions {
 						+ "\nDate :\t" + invoice.getDate());
 		
 		ArrayList<Position> positionList = invoice.getPositionList();
-		
-		float total = 0;
+
 		for (Position position : positionList) {
 			System.out.println(position.getProductName() + "\t"
 							+ + position.getAmount()+ " * " + position.getPrice()
 							+ " = " + position.getPrice() * position.getAmount());
-			total += position.getAmount() * position.getPrice();
 		}
 		
-		System.out.println("Total :\t" + total);
+		System.out.println("Total :\t" + this.addTotal(positionList));
+	}
+	
+	public static float addTotal(ArrayList<Position> positionList) {
+		float total = 0;
+		for (Position position : positionList)
+			total += position.getPrice() * position.getAmount();
+		return total;
 	}
 	
 	private String getCustomer() {
@@ -49,6 +54,7 @@ public class InvoiceOptions {
 		System.out.print("Customer : ");
 		String customer = keyboard.nextLine();
 		
+		keyboard.close();
 		return customer;
 	}
 	
@@ -80,6 +86,7 @@ public class InvoiceOptions {
 				ifNewPosition = false;
 			}
 		}
+		keyboard.close();
 		
 		return positionList;
 	}
@@ -92,6 +99,7 @@ public class InvoiceOptions {
 		System.out.print("Invoice id : ");
 		Scanner keyboard = new Scanner(System.in);
 		int id = Integer.parseInt(keyboard.nextLine());
+		keyboard.close();
 		
 		return invoiceList.get(id);
 	}

@@ -33,7 +33,7 @@ public class ProductOptions {
 	
 	public void showProduct() {
 		for(Product product : productList) {
-			System.out.println(product.getName() + "\tprice " + product.getRecPrice());
+			System.out.println(product.getName() + " price " + product.getRecPrice());
 		}
 	}
 	

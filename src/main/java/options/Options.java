@@ -41,6 +41,8 @@ public class Options {
 		case 5:
 			this.ifQuit = true;
 		}
+		
+		keyboard.close();
 	}
 	
 	public boolean endProgram() {
