@@ -13,6 +13,9 @@ public class ProductOptions {
 	
 	public ProductOptions() {
 		this.productDatabase = new ProductDatabase();
+	}
+	
+	public void getProductFromDatabase() {
 		this.productList = productDatabase.getProductFromDatabase();
 	}
 	

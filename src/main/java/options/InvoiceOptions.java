@@ -15,6 +15,9 @@ public class InvoiceOptions {
 	
 	public InvoiceOptions() {
 		this.invoiceDatabase = new InvoiceDatabase();
+	}
+	
+	public void getInvoiceToDadatase() {
 		this.invoiceList = invoiceDatabase.getInvoiceFromDatabase();
 	}
 	
@@ -43,7 +46,7 @@ public class InvoiceOptions {
 		System.out.println("Total :\t" + this.addTotal(positionList));
 	}
 	
-	public static float addTotal(ArrayList<Position> positionList) {
+	public float addTotal(ArrayList<Position> positionList) {
 		float total = 0;
 		for (Position position : positionList)
 			total += position.getPrice() * position.getAmount();

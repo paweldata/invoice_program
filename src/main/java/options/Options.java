@@ -13,6 +13,11 @@ public class Options {
 		this.invoiceOptions = new InvoiceOptions();
 	}
 	
+	public void getDataFromDatabase() {
+		this.productOptions.getProductFromDatabase();
+		this.invoiceOptions.getInvoiceToDadatase();
+	}
+	
 	public void showMenu() {
 		System.out.println("Choose :\n"
 				+ "1. Add invoice\n"
